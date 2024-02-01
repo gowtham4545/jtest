@@ -1,0 +1,3 @@
+# jtest
+
+__jtest__ is a unit testing framework built in c++. It is inspired by python's unittest library.
