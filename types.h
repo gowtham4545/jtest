@@ -71,21 +71,44 @@
     } while (0)
 
 // String Types
-#define ASSERT_STR_EQ(str1, str2)                                                                                                             \
-    do                                                                                                                                        \
-    {                                                                                                                                         \
-        int n1 = strlen(str1);                                                                                                                \
-        int n2 = strlen(str2);                                                                                                                \
-        ASSERT_TRUE(n1 == n2);                                                                                                                \
-        for (int i = 0; i < n1; i++)                                                                                                          \
-        {                                                                                                                                     \
-            if (str1[i] != str2[i])                                                                                                           \
-            {                                                                                                                                 \
-                fprintf(stderr, "Assertion Failed: ( %s != %s ), function %s, file %s, line %d\n", str1, str2, __func__, __FILE__, __LINE__); \
-                printf("%s: abort ", __BASE_FILE__);                                                                                          \
-                exit(EXIT_FAILURE);                                                                                                           \
-            }                                                                                                                                 \
-        }                                                                                                                                     \
+#define ASSERT_STR_EQ(str1, str2)             \
+    do                                        \
+    {                                         \
+        int n1 = strlen(str1);                \
+        int n2 = strlen(str2);                \
+        ASSERT_TRUE(n1 == n2);                \
+        ASSERT_TRUE(strcmp(str1, str2) == 0); \
+    } while (0)
+
+#define ASSERT_STR_NE(str1, str2)              \
+    do                                         \
+    {                                          \
+        ASSERT_FALSE(strcmp(str1, str2) == 0); \
+    } while (0)
+
+#define ASSERT_STR_CASE_EQ(str1, str2)            \
+    do                                            \
+    {                                             \
+        ASSERT_TRUE(strcasecmp(str1, str2) == 0); \
+    } while (0)
+
+#define ASSERT_STR_CASE_NE(str1, str2)             \
+    do                                             \
+    {                                              \
+        ASSERT_FALSE(strcasecmp(str1, str2) == 0); \
     } while (0)
 
 // Float Types
+
+#define ASSERT_NEAR(val1, val2, d)                             \
+    do                                                         \
+    {                                                          \
+        ASSERT_TRUE((val1 - val2 <= d) || (val2 - val1 <= d)); \
+    } while (0)
+
+// Exception Types
+#define ASSERT_THROW(func, err)
+
+#define ASSERT_THROW_ANY(func)
+
+#define ASSERT_NO_THROW(func)
