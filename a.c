@@ -86,14 +86,20 @@ int main(int argc, char const *argv[])
 {
     if (argc == 1)
     {
-        printf("Format: gcc %s testfile");
+        printf("Format: %s testfile\n",argv[0]);
+        exit(0);
     }
     size = shmget(IPC_PRIVATE, sizeof(int), IPC_CREAT | 0666);
     n = shmat(size, (void *)0, 0);
     *n = 0;
     buffer = shmget(IPC_PRIVATE, sizeof(char) * 10000, IPC_CREAT | 0666);
     text = shmat(buffer, (void *)0, 0);
-    system("gcc -c -fPIC -o %s\b\b.o %s && gcc -shared -o %s\b\b.so %s\b\b.o");
+    char command[100];
+    sprintf(command, "gcc -c -fPIC -o %s\b\b.o %s && gcc -shared -o %s\b\b.so %s\b\b.o",argv[1],argv[1],argv[1],argv[1]);
+    // system("gcc -c -fPIC -o %s\b\b.o %s && gcc -shared -o %s\b\b.so %s\b\b.o");
+    // system("gcc -c -fPIC -o b.o b.c && gcc -shared -o b.so b.o");
+    // system(command);
+    // printf("%s\n", command);
     const char *directory_path = "/Users/gos/Desktop/jtest/"; // Specify the directory containing the shared objects (.so files)
     main_loop(directory_path);
     return 0;
