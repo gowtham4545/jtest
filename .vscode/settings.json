@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "assert.h": "c",
+        "global.h": "c",
+        "types.h": "c",
+        "stdio.h": "c",
+        "link.h": "c",
+        "dirent.h": "c"
+    }
+}
