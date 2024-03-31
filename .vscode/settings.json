@@ -5,6 +5,12 @@
         "types.h": "c",
         "stdio.h": "c",
         "link.h": "c",
-        "dirent.h": "c"
+        "dirent.h": "c",
+        "*.tcc": "c",
+        "unordered_map": "c",
+        "numeric": "c",
+        "ostream": "c",
+        "system_error": "c",
+        "typeinfo": "c"
     }
 }

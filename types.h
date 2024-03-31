@@ -1,3 +1,6 @@
+#ifndef _TYPES_H
+#define _TYPES_H
+
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -15,8 +18,9 @@
         if (!(condition))                                                                                                           \
         {                                                                                                                           \
             fprintf(stderr, "Assertion Failed: ( %s ), function %s, file %s, line %d\n", #condition, __func__, __FILE__, __LINE__); \
-            printf("%s: abort ", __BASE_FILE__);                                                                                    \
-            exit(EXIT_FAILURE);                                                                                                     \
+            printf("%s: abort \n", __BASE_FILE__);                                                                                    \
+            err_flag = true;                                                                                                        \
+            return;                                                                                                                 \
         }                                                                                                                           \
     } while (0)
 
@@ -112,3 +116,5 @@
 #define ASSERT_THROW_ANY(func)
 
 #define ASSERT_NO_THROW(func)
+
+#endif
