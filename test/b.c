@@ -1,5 +1,5 @@
 #include"../jtest/types.h"
 
-void f2(){
+TEST(f2){
     return ;
 }

@@ -54,14 +54,14 @@ void run_all_tests()
         else
         {
             printf("[      ERR ] TC_%s (%lds)\n", tc->tname, (end_t - start_t));
-            errno++;
+            errnos++;
             err_flag = !err_flag;
         }
         tc = tc->next;
     }
     end_t = time(NULL);
     printf("[==========] %d test cases ran. (%lds)\n", (end_t - begin_t));
-    if (!errno)
+    if (!errnos)
         printf("[  PASSED  ] %d tests \n", tests_size);
     else
         printf("[  FAILED  ] %d tests from %d tests failed\n", errno, tests_size);
