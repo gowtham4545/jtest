@@ -4,8 +4,8 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "global.h"
 #include <string.h>
+#include "TestFramework.h"
 
 #define true 1
 #define false 0
@@ -18,8 +18,8 @@
         if (!(condition))                                                                                                           \
         {                                                                                                                           \
             fprintf(stderr, "Assertion Failed: ( %s ), function %s, file %s, line %d\n", #condition, __func__, __FILE__, __LINE__); \
-            printf("%s: abort \n", __BASE_FILE__);                                                                                    \
-            err_flag = true;                                                                                                        \
+            printf("%s: abort \n", __BASE_FILE__);                                                                                  \
+            err_flag++;                                                                                                             \
             return;                                                                                                                 \
         }                                                                                                                           \
     } while (0)

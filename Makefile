@@ -1,2 +1,5 @@
 bld:
-	gcc ./test/*.c -o output && ./output -g 
+	gcc \
+	test/a.c \
+	test/b.c \
+	Main.c \

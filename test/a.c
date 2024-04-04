@@ -12,10 +12,3 @@ void f1(){
     int a=0/1;
     ASSERT_EQ(1,1);
 }
-
-int main(int argc, char const *argv[])
-{
-    TEST_CASE("tcase","sample",f);
-    TEST_CASE("tcase","sample1",f1);
-    return 0;
-}
