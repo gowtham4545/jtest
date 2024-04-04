@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include"../types.h"
+#include"../jtest/types.h"
 
 void f(){
     printf("f function\n");
