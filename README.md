@@ -7,13 +7,13 @@
 - add the test files in makefile
 
 ```makefile
-run:
+run: build
 	./a
 
 build:
 	gcc \
-	test/a.c \
-	test/b.c \
+	test/prog1.c \
+	test/prog2.c \
 	Main.c \
 	-o a
 ```
